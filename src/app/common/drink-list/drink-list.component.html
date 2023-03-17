@@ -1,1 +1,7 @@
-<p>drink-list works!</p>
+<ul class="list-group">
+    <li *ngFor="let consume of consumeList$" class="list-group-item">
+        <i class="fa fa-coffee"></i> 
+        {{ getWeekDayName(consume.timeStamp) }} 
+        {{ getFormattedDate(consume.timeStamp) }}
+    </li>
+  </ul>
