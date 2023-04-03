@@ -1,7 +1,11 @@
-<ul class="list-group">
-    <li *ngFor="let consume of consumeList$" class="list-group-item">
+<ul class="list-group position-relative">
+    <li *ngFor="let consume of consumeList$ | async" class="list-group-item">
         <i class="fa fa-coffee"></i> 
+        {{ consume.id }} - 
         {{ getWeekDayName(consume.timeStamp) }} 
         {{ getFormattedDate(consume.timeStamp) }}
+        <button (click)="onRemoveConsume(consume)" style="float: right" class="btn btn-danger">
+            <i class="fa fa-trash"></i>
+        </button>
     </li>
   </ul>
