@@ -25,6 +25,10 @@ export class DrinkListComponent {
   }
 
   onRemoveConsume(consume: Consume): void {
+    if (!confirm('Are you sure?')) {
+      return;
+    }
+
     this.consumeService.delete(consume.id).subscribe(
       () => this.consumeList$ = this.consumeService.getAll()
     );

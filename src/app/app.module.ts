@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './common/header/header.component';
 import { StatComponent } from './common/stat/stat.component';
 import { DrinkListComponent } from './common/drink-list/drink-list.component';
+import { HomeComponent } from './page/home/home.component';
+import { AdminComponent } from './page/admin/admin.component';
+import { ConsumeEditorComponent } from './page/consume-editor/consume-editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     StatComponent,
-    DrinkListComponent
+    DrinkListComponent,
+    HomeComponent,
+    AdminComponent,
+    ConsumeEditorComponent
   ],
   imports: [
     BrowserModule,

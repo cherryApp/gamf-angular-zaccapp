@@ -29,13 +29,6 @@
       "payed": false
     },
     {
-      "id": 5,
-      "user": 55,
-      "type": "simple",
-      "timeStamp": 1680251209713,
-      "payed": false
-    },
-    {
       "id": 7,
       "user": 90,
       "type": "simple",
