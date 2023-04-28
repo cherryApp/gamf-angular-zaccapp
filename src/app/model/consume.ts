@@ -4,4 +4,5 @@ export class Consume {
     type?: string = 'simple';
     timeStamp: number = 0;
     payed?: boolean = false;
+    date?: string = '';
 }

@@ -10,6 +10,7 @@ import { DrinkListComponent } from './common/drink-list/drink-list.component';
 import { HomeComponent } from './page/home/home.component';
 import { AdminComponent } from './page/admin/admin.component';
 import { ConsumeEditorComponent } from './page/consume-editor/consume-editor.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ConsumeEditorComponent } from './page/consume-editor/consume-editor.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

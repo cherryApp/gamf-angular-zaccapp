@@ -9,10 +9,10 @@
     },
     {
       "id": 2,
-      "user": 69,
-      "type": "simple",
-      "timeStamp": 1680250807852,
-      "payed": true
+      "user": 55,
+      "type": "double",
+      "timeStamp": 1682640000000,
+      "payed": "false"
     },
     {
       "id": 3,
