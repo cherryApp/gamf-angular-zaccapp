@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { AbstractControl, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { Consume } from 'src/app/model/consume';
@@ -24,6 +25,12 @@ export class ConsumeEditorComponent {
       return consume;
     })
   );
+
+  getVisible(control: AbstractControl): {[key: string]: any} {
+    return {
+      visibility: control?.invalid ? 'visible' : 'hidden',
+    };
+  }
 
   formatDate(timeStamp: number): string {
     const date = new Date(timeStamp);

@@ -1,17 +1,27 @@
 <div class="row" *ngIf="consume$ | async as consume">
     <div class="col-6 offset-3">
-        <form (ngSubmit)="onUpdate(consume)">
+        <form #cForm="ngForm" (ngSubmit)="onUpdate(consume)">
             <div class="form-group">
                 <label for="">User</label>
-                <input name="user" [(ngModel)]="consume.user" type="number" class="form-control">
+                <input required name="user" [(ngModel)]="consume.user" type="number" class="form-control">
+                <div *ngIf="cForm.controls['user']?.invalid" class="error-message">
+                    A felhasználó megadása kötelező!
+                </div>
             </div>
             <div class="form-group">
                 <label for="">Type</label>
-                <input name="type" [(ngModel)]="consume.type" type="text" class="form-control">
+                <input required pattern="^[a-z]{6,10}$" name="type" [(ngModel)]="consume.type" type="text" class="form-control">
+                <div [ngStyle]="getVisible(cForm.controls['type'])" class="error-message">
+                    A típusnak legalább hat, legfeljebb tíz karakter hosszúnak kell lennie!
+                </div>
             </div>
             <div class="form-group">
+                <!-- 2023-04-12 -->
                 <label for="">Time</label>
-                <input name="timeStamp" [(ngModel)]="consume.date" type="date" class="form-control">
+                <input required pattern="^202[0-9]\-[0-1][0-9]\-[0123][0-9]$" name="timeStamp" [(ngModel)]="consume.date" type="date" class="form-control">
+                <div [class.error-hidden]="cForm.controls['timeStamp']?.valid" class="error-message">
+                    2020 és 2029 közötti érvényes dátumot adjon meg!
+                </div>
             </div>
             <div class="form-group">
                 <label for="">Payed</label>
@@ -24,7 +34,7 @@
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary mt-3">
+            <button [disabled]="cForm.invalid" type="submit" class="btn btn-primary mt-3">
                 <i class="fa fa-save"></i> update
             </button>
         </form>
