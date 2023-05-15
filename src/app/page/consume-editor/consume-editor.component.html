@@ -10,7 +10,11 @@
             </div>
             <div class="form-group">
                 <label for="">Type</label>
-                <input required pattern="^[a-z]{6,10}$" name="type" [(ngModel)]="consume.type" type="text" class="form-control">
+                <select name="type" [(ngModel)]="consume.type" class="form-select">
+                  <option *ngFor="let option of typeOptions" [value]="option.value">
+                    {{ option.text }}
+                  </option>
+                </select>
                 <div [ngStyle]="getVisible(cForm.controls['type'])" class="error-message">
                     A típusnak legalább hat, legfeljebb tíz karakter hosszúnak kell lennie!
                 </div>
@@ -19,14 +23,14 @@
                 <!-- 2023-04-12 -->
                 <label for="">Time</label>
                 <input required pattern="^202[0-9]\-[0-1][0-9]\-[0123][0-9]$" name="timeStamp" [(ngModel)]="consume.date" type="date" class="form-control">
-                <div [class.error-hidden]="cForm.controls['timeStamp']?.valid" class="error-message">
+                <div [class.error-hidden]="cForm.controls['timeStamp'] && cForm.controls['timeStamp'].valid" class="error-message">
                     2020 és 2029 közötti érvényes dátumot adjon meg!
                 </div>
             </div>
             <div class="form-group">
                 <label for="">Payed</label>
-                <select 
-                    name="payed" 
+                <select
+                    name="payed"
                     [(ngModel)]="consume.payed"
                     class="form-select">
                         <option value="false">No</option>
@@ -38,7 +42,7 @@
                 <i class="fa fa-save"></i> update
             </button>
         </form>
-        {{ consume | json }}
+        <!-- {{ consume | json }} -->
     </div>
 </div>
 

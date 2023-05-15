@@ -1,8 +1,8 @@
 <ul class="list-group position-relative">
-    <li *ngFor="let consume of consumeList$ | async" class="list-group-item">
-        <i class="fa fa-coffee"></i> 
-        {{ consume.id }} - 
-        {{ getWeekDayName(consume.timeStamp) }} 
+    <li *ngFor="let consume of consumeList$ | async" class="list-group-item" [class.bg-warning]="!consume.payed">
+        <i class="fa fa-coffee"></i>
+        {{ consume.type }} -
+        {{ getWeekDayName(consume.timeStamp) }}
         {{ getFormattedDate(consume.timeStamp) }}
         <div class="btn-group" style="float: right">
             <button [routerLink]="['/admin/consume/edit', consume.id]" class="btn btn-info">
